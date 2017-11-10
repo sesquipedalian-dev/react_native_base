@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import defineView from '../lib/defineView';
 
-export default class App extends Component { 
+class App extends Component { 
     changeInt() { 
+        // call a redux action to change the state
         this.props.delayed(1);
     }
 
@@ -18,10 +20,24 @@ export default class App extends Component {
                     title='change the int!'
                 />
                 <Button
-                    onPress={Actions.other}
+                    onPress={
+                        /* Use the router's Actions to go to another scene - 
+                           the one with key = 'other' in the router definition
+                           in index.js
+                        */
+                        Actions.other
+                    }
                     title='go to second scene!'
                 />
             </View>
         );
     }
 }
+
+// hook up component view - a portion of the state
+export default comp = defineView(App, (state) => {
+    return {
+        anInt: state.anInt,
+        aSecondInt: state.aSecondInt
+    }
+});

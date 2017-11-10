@@ -1,10 +1,11 @@
 import React, {Component} from 'react'; 
 import { View, Text, Button } from 'react-native'; 
 import { Actions } from 'react-native-router-flux';
+import defineView from '../lib/defineView';
 
-export default class SecondScene extends Component {
+class SecondScene extends Component {
     button() { 
-        console.log("Hi");
+        // popping the router state - sends you back to whoever sent you here
         Actions.pop();
     } 
     render() { 
@@ -19,3 +20,7 @@ export default class SecondScene extends Component {
         );
     }
 }
+
+// hook up the component view - a limited view of the redux state for use 
+// by this component
+export default comp = defineView(SecondScene, (state) => {});

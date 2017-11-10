@@ -43,7 +43,7 @@ const store = configureStore({});
 import { Router, Scene } from 'react-native-router-flux';
 const RouterWithRedux = connect()(Router);
 
-// in this section, define the routes for the app.  a root scene is required?
+// in this section, define the routes for the app.  
 // each scene can be a separate container component 
 import { connect } from 'react-redux';
 import { Component } from 'react';
@@ -55,6 +55,8 @@ class App extends Component {
         return ( 
             <Provider store={store}>
                 <RouterWithRedux>
+                    {/* a root scene is required by the router.  It can take a
+                    few forms though (e.g. tabs, stacks, etc) */}
                     <Scene key="root">
                         <Scene key="landing" component={AppContainer} title="Landing"/>
                         <Scene key="other" component={SecondScene} title="Other"/>
