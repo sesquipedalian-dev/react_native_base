@@ -48,7 +48,7 @@ const RouterWithRedux = connect()(Router);
 import { connect } from 'react-redux';
 import { Component } from 'react';
 import AppContainer from './js/containers/app';
-import SecondScene from './js/containers/secondScene';
+import SecondScene  from './js/containers/secondScene';
 
 class App extends Component { 
     render() { 
