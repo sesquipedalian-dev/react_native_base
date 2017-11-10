@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 export default class App extends Component { 
     changeInt() { 
@@ -15,6 +16,10 @@ export default class App extends Component {
                 <Button
                     onPress={this.changeInt.bind(this)}
                     title='change the int!'
+                />
+                <Button
+                    onPress={Actions.other}
+                    title='go to second scene!'
                 />
             </View>
         );

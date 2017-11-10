@@ -9,7 +9,6 @@ function mapDispatchToProps(dispatch) {
 
 export default connect((state) => { 
     return {
-        anInt: state.anInt,
-        aSecondInt: state.aSecondInt
-    }
+        nada: 5
+    };
 }, mapDispatchToProps)(Component);
