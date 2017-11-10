@@ -11,7 +11,7 @@ const wholeStateReducers = [
     complicatedReducers.aSecondInt
 ];
 
-const thunkReducer = function(prevState, action) {
+const thunkReducer = function(prevState = {}, action) {
     let newState = baseReducer(prevState, action);
 
     wholeStateReducers.forEach((reducer) => newState = reducer(newState));

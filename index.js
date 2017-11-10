@@ -21,12 +21,23 @@ function configureStore(initialState) {
 
 const store = configureStore({});
 
-const App = () => { 
-    return ( 
-        <Provider store={store}>
-            <AppContainer/>
-        </Provider>
-    );
-};
+import { Router, Scene } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { Component } from 'react';
+const RouterWithRedux = connect()(Router);
+
+class App extends Component { 
+    render() { 
+        return ( 
+            <Provider store={store}>
+                <RouterWithRedux>
+                    <Scene key="root">
+                        <Scene key="landing" component={AppContainer} title="Landing"/>
+                    </Scene>
+                </RouterWithRedux>
+            </Provider>
+        );
+    }
+}
 
 AppRegistry.registerComponent('TestApp', () => App);
